@@ -1,10 +1,11 @@
-package com.example.mavenmock;
+// Sebastian Somogyi 22006906 This program has 3 Functions 1 generates a password 2nd show factroial of number and last one to exit program 
 
-import java.awt.*;
+package com.example.mavenmock;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseEvent;
+import java.math.BigInteger;
 
 class App {
 
@@ -54,12 +55,15 @@ class App {
                 String input;
                 input = JOptionPane.showInputDialog("Please enter a number to go through the factorial function");
                 int InputValue = Integer.valueOf(input);
-                int i = 1;
-                int fact = 1;
-                for (i = 1; i <= InputValue; i++) {
-                    fact = fact * i;
+                BigInteger factorial = BigInteger.ONE;
+
+                int n = InputValue;
+
+                for (int i = 1; i <= n; i++) {
+                    factorial = factorial.multiply(BigInteger.valueOf(i));
                 }
-                JOptionPane.showMessageDialog(null, "Factorial of " + InputValue + " is " + fact);
+                JOptionPane.showMessageDialog(null, "Factorial of " + InputValue + " is " + factorial);
+
             }
         });
         Button3.addMouseListener(new MouseInputAdapter() {
