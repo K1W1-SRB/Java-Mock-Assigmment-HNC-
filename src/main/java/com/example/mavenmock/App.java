@@ -19,7 +19,7 @@ class App {
         JButton Button1 = new JButton("Generate Username");
         Button1.setBounds(10, 10, 200, 50);
         Button1.getActionListeners();
-        JButton Button2 = new JButton("Square check");
+        JButton Button2 = new JButton("Factorial");
         Button2.setBounds(250, 10, 200, 50);
         JButton Button3 = new JButton("Bye");
         Button3.setBounds(500, 10, 200, 50);
@@ -43,7 +43,7 @@ class App {
                 firstChar = firstName.charAt(0);
                 char firstChar2 = Character.toLowerCase(firstChar);
                 String password;
-                password = lastName.toUpperCase() + firstChar2;
+                password = firstChar2 + lastName.toUpperCase();
                 JOptionPane.showMessageDialog(null, password);
             }
         });
@@ -51,14 +51,26 @@ class App {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                JOptionPane.showMessageDialog(null, "test 2");
+                String input;
+                input = JOptionPane.showInputDialog("Please enter a number to go through the factorial function");
+                int InputValue = Integer.valueOf(input);
+                int i = 1;
+                int fact = 1;
+                for (i = 1; i <= InputValue; i++) {
+                    fact = fact * i;
+                }
+                JOptionPane.showMessageDialog(null, "Factorial of " + InputValue + " is " + fact);
             }
         });
         Button3.addMouseListener(new MouseInputAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                JOptionPane.showMessageDialog(null, "test 3");
+                int result = JOptionPane.showConfirmDialog(null,
+                        "Are you sure you want to quit?",
+                        "Confirm Quit", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (result == JOptionPane.YES_OPTION)
+                    System.exit(0);
             }
         });
     }
