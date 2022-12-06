@@ -1,4 +1,4 @@
-// Sebastian Somogyi 22006906 This program has 3 Functions 1 generates a password 2nd show factroial of number and last one to exit program 
+// Sebastian Somogyi 22006906 This program has 3 Functions 1 generates a password 2nd show factorial of number and last one to exit program 
 
 package com.example.mavenmock;
 
@@ -6,7 +6,6 @@ import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigInteger;
-import java.util.function.Function;
 
 class App {
 
@@ -23,13 +22,13 @@ class App {
     }
 
     public static void main(String args[]) {
-        JFrame f = new JFrame("Mock-assesment");
+        JFrame f = new JFrame("Assessment");
         // set size and location of frame
         f.setSize(800, 300);
         f.setLocation(100, 150);
         // make sure it quits when x is clicked
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // set look and feel declaratons of buttons and dimensions
+        // set look and feel declarations of buttons and dimensions
         JButton Button1 = new JButton("Generate Username");
         Button1.setBounds(10, 10, 200, 50);
         Button1.getActionListeners();
@@ -38,7 +37,7 @@ class App {
         JButton Button3 = new JButton("Bye");
         Button3.setBounds(500, 10, 200, 50);
 
-        // add elements to the frame
+        // add elements to the frame(Screen)
         f.add(Button1);
         f.add(Button2);
         f.add(Button3);
@@ -61,7 +60,7 @@ class App {
                 firstChar = firstName.charAt(0); // gets first character of first name
                 char firstChar2 = Character.toLowerCase(firstChar); // makes it lowercase
                 String password;
-                password = firstChar2 + lastName.toUpperCase(); // adds the first character and adds the lastname all
+                password = firstChar2 + lastName.toUpperCase(); // adds the first character and adds the lastName all
                                                                 // uppercase
                 JOptionPane.showMessageDialog(null, password);// outputs the password
             }
@@ -73,7 +72,7 @@ class App {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 String input;
-                // int InputValue;
+                // error handling if input is not a number
                 input = JOptionPane.showInputDialog("Please enter a number to go through the factorial function");
                 try {
                     int inputValue = Integer.parseInt(input);
