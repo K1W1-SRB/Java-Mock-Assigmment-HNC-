@@ -6,8 +6,21 @@ import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigInteger;
+import java.util.function.Function;
 
 class App {
+
+    public static BigInteger Factorial(int inputValue) {
+        // Factorial Algorithm
+        BigInteger factorial = BigInteger.ONE;
+
+        int n = inputValue;
+
+        for (int i = 1; i <= n; i++) {
+            factorial = factorial.multiply(BigInteger.valueOf(i));
+        }
+        return factorial;
+    }
 
     public static void main(String args[]) {
         JFrame f = new JFrame("Mock-assesment");
@@ -53,30 +66,21 @@ class App {
                 JOptionPane.showMessageDialog(null, password);// outputs the password
             }
         });
+
         // listeners for the factorial button
         Button2.addMouseListener(new MouseInputAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 String input;
-                int InputValue;
+                // int InputValue;
                 input = JOptionPane.showInputDialog("Please enter a number to go through the factorial function");
                 try {
-                    InputValue = Integer.parseInt(input);
-                    return InputValue;
-                } catch (NumberFormatException p) {
-                    System.out.println("Input String cannot be parsed to Integer.");
+                    int inputValue = Integer.parseInt(input);
+                    JOptionPane.showMessageDialog(null, "Factorial of " + inputValue + " is " + Factorial(inputValue));
+                } catch (Exception o) {
+                    JOptionPane.showMessageDialog(null, "error enter number");
                 }
-
-                // Factorial Algorithm
-                BigInteger factorial = BigInteger.ONE;
-
-                int n = InputValue;
-
-                for (int i = 1; i <= n; i++) {
-                    factorial = factorial.multiply(BigInteger.valueOf(i));
-                }
-                JOptionPane.showMessageDialog(null, "Factorial of " + InputValue + " is " + factorial);
             }
         });
         // listeners for the Bye Button
